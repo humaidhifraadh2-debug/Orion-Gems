@@ -1,13 +1,16 @@
 import axios from "axios";
 
-const BASE_URL = "https://dev-oriongems.pantheonsite.io//wp-json/wc/store/v1";
+const BASE_URL = "https://dev-oriongems.pantheonsite.io/wp-json/wc/store/v1";
 
-export const fetchProducts = async () => {
-  const response = await axios.get(`${BASE_URL}/products`);
-  return response.data;
-};
+axios.defaults.withCredentials = true;
 
-export const fetchSingleProduct = async (id) => {
-  const response = await axios.get(`${BASE_URL}/products/${id}`);
+export const fetchProducts = async (category = "All") => {
+  let url = `${BASE_URL}/products`;
+
+  if (category && category !== "All") {
+    url += `?category=${category.toLowerCase()}`;
+  }
+
+  const response = await axios.get(url);
   return response.data;
 };
