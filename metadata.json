@@ -1,0 +1,9 @@
+{
+  "name": "Remix: ORION GEMS",
+  "description": "Ultra-premium headless ecommerce frontend for a high-end jewelry brand. Features include AI-powered search, virtual stylist, and secure checkout.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
